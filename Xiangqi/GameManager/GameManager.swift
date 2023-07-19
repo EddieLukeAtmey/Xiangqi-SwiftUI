@@ -7,8 +7,6 @@
 
 import Foundation
 
-let boardSize = (h: 9, v: 10)
-
 // To handle game logic
 final class GameManager {
 
@@ -25,26 +23,26 @@ final class GameManager {
 
         GameManager.allStartingPositions.forEach { pos in
 
-            let side: PieceSide = pos.y > 5 ? .red : .black
+            let side: PieceSide = pos.y > BoardMarkerV.redRiver ? .red : .black
 
             switch (pos.x, pos.y) {
 
-            case (_, 3): fallthrough
-            case (_, 6):
+            case (_, BoardMarkerV.blackRiver - 1): fallthrough
+            case (_, BoardMarkerV.redRiver + 1):
                 pieces.append(Pawn(position: pos, side: side))
 
-            case (_, 2): fallthrough
-            case (_, 7):
+            case (_, BoardMarkerV.blackMid): fallthrough
+            case (_, BoardMarkerV.redMid):
                 pieces.append(Cannon(position: pos, side: side))
 
             case (let x, _):
                 let piece: GamePiece
                 switch x {
-                case 0, 8: piece = Rook(position: pos, side: side)
-                case 1, 7: piece = Knight(position: pos, side: side)
-                case 2, 6: piece = Bishop(position: pos, side: side)
-                case 3, 5: piece = Advisor(position: pos, side: side)
-                case 4: piece = General(position: pos, side: side)
+                case BoardMarkerH.left, BoardMarkerH.right: piece = Rook(position: pos, side: side)
+                case BoardMarkerH.leftCanon, BoardMarkerH.rightCanon: piece = Knight(position: pos, side: side)
+                case BoardMarkerH.midLeft, BoardMarkerH.midRight: piece = Bishop(position: pos, side: side)
+                case BoardMarkerH.castleL, BoardMarkerH.castleR: piece = Advisor(position: pos, side: side)
+                case BoardMarkerH.center: piece = General(position: pos, side: side)
                 default: fatalError("Uknown Position")
                 }
 
@@ -57,22 +55,23 @@ final class GameManager {
 
     static let allStartingPositions: [Position] = {
         var p = [Position]()
-        for i in 0..<9 {
-            p.append(.init(x: i, y: 0))
+        for i in BoardMarkerH.left...BoardMarkerH.right {
+            p.append(.init(x: i, y: BoardMarkerV.blackBot))
+            p.append(.init(x: i, y: BoardMarkerV.redBot))
 
             // Pawn
-            if i & 1 == 0 { p.append(.init(x: i, y: 3)) }
+            if i & 1 == 0 {
+                p.append(.init(x: i, y: BoardMarkerV.blackRiver - 1))
+                p.append(.init(x: i, y: BoardMarkerV.redRiver + 1))
+            }
+
+            if i == BoardMarkerH.leftCanon || i == BoardMarkerH.rightCanon {
+                // Cannon
+                p.append(.init(x: i, y: BoardMarkerV.blackMid))
+                p.append(.init(x: i, y: BoardMarkerV.redMid))
+            }
         }
 
-        // Cannon
-        p.append(.init(x: 1, y: 2))
-        p.append(.init(x: 7, y: 2))
-
-        // Other side
-        var p2 = [Position]()
-        p.forEach { p2.append(.init(x: $0.x, y: 9 - $0.y)) }
-
-        p.append(contentsOf: p2)
         return p
     }()
 

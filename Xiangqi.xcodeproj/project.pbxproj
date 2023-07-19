@@ -25,6 +25,10 @@
 		2CE3CAD22A651FB600E8DA49 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3CAD12A651FB600E8DA49 /* GameView.swift */; };
 		2CE3CAD52A651FE500E8DA49 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3CAD42A651FE500E8DA49 /* MainMenuView.swift */; };
 		2CE3CAD72A65281D00E8DA49 /* TopMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE3CAD62A65281D00E8DA49 /* TopMenuView.swift */; };
+		2CFED8C22A67C0F0004131E5 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFED8C12A67C0F0004131E5 /* Move.swift */; };
+		2CFED8C82A67CC6C004131E5 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFED8C72A67CC6C004131E5 /* Position.swift */; };
+		2CFED8CB2A67D22A004131E5 /* Number+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFED8CA2A67D22A004131E5 /* Number+Extensions.swift */; };
+		2CFED8CD2A67D979004131E5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFED8CC2A67D979004131E5 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +51,10 @@
 		2CE3CAD12A651FB600E8DA49 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		2CE3CAD42A651FE500E8DA49 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		2CE3CAD62A65281D00E8DA49 /* TopMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMenuView.swift; sourceTree = "<group>"; };
+		2CFED8C12A67C0F0004131E5 /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
+		2CFED8C72A67CC6C004131E5 /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Position.swift; path = Xiangqi/Models/Position.swift; sourceTree = SOURCE_ROOT; };
+		2CFED8CA2A67D22A004131E5 /* Number+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Number+Extensions.swift"; sourceTree = "<group>"; };
+		2CFED8CC2A67D979004131E5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +87,11 @@
 		2CE3CAA62A64D49F00E8DA49 /* Xiangqi */ = {
 			isa = PBXGroup;
 			children = (
+				2CFED8C32A67C4E5004131E5 /* Util */,
 				2CE3CACE2A651DE500E8DA49 /* ViewModels */,
 				2CE3CACB2A651D4800E8DA49 /* Views */,
 				2CE3CAB92A64E4EB00E8DA49 /* GameManager */,
+				2CFED8C92A67CC82004131E5 /* Models */,
 				2CE3CAA72A64D49F00E8DA49 /* xiangqiApp.swift */,
 				2CE3CAAB2A64D4A000E8DA49 /* Assets.xcassets */,
 				2CE3CAAD2A64D4A000E8DA49 /* Preview Content */,
@@ -101,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				2CE3CAB72A64E4B800E8DA49 /* GameManager.swift */,
-				2CE3CABC2A64E51100E8DA49 /* GamePieces */,
 			);
 			path = GameManager;
 			sourceTree = "<group>";
@@ -110,13 +119,13 @@
 			isa = PBXGroup;
 			children = (
 				2CE3CABA2A64E50900E8DA49 /* GamePiece.swift */,
-				2CE3CABF2A64EB6200E8DA49 /* Bishop.swift */,
-				2CE3CAC32A64EB8900E8DA49 /* Cannon.swift */,
-				2CE3CAC52A64EBA600E8DA49 /* Knight.swift */,
-				2CE3CAC72A64EBC100E8DA49 /* Advisor.swift */,
-				2CE3CABD2A64E5E100E8DA49 /* Pawn.swift */,
-				2CE3CAC12A64EB7300E8DA49 /* Rook.swift */,
 				2CE3CAC92A64ED8B00E8DA49 /* General.swift */,
+				2CE3CABD2A64E5E100E8DA49 /* Pawn.swift */,
+				2CE3CAC72A64EBC100E8DA49 /* Advisor.swift */,
+				2CE3CABF2A64EB6200E8DA49 /* Bishop.swift */,
+				2CE3CAC52A64EBA600E8DA49 /* Knight.swift */,
+				2CE3CAC12A64EB7300E8DA49 /* Rook.swift */,
+				2CE3CAC32A64EB8900E8DA49 /* Cannon.swift */,
 			);
 			path = GamePieces;
 			sourceTree = "<group>";
@@ -147,6 +156,33 @@
 				2CE3CAD62A65281D00E8DA49 /* TopMenuView.swift */,
 			);
 			path = Game;
+			sourceTree = "<group>";
+		};
+		2CFED8C32A67C4E5004131E5 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				2CFED8CC2A67D979004131E5 /* Constants.swift */,
+				2CFED8C42A67C4F4004131E5 /* Extensions */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		2CFED8C42A67C4F4004131E5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2CFED8CA2A67D22A004131E5 /* Number+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2CFED8C92A67CC82004131E5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2CFED8C12A67C0F0004131E5 /* Move.swift */,
+				2CFED8C72A67CC6C004131E5 /* Position.swift */,
+				2CE3CABC2A64E51100E8DA49 /* GamePieces */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +255,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CFED8CB2A67D22A004131E5 /* Number+Extensions.swift in Sources */,
+				2CFED8C22A67C0F0004131E5 /* Move.swift in Sources */,
 				2CE3CAD52A651FE500E8DA49 /* MainMenuView.swift in Sources */,
 				2CE3CAC82A64EBC100E8DA49 /* Advisor.swift in Sources */,
 				2CE3CACD2A651D9A00E8DA49 /* GamePieceView.swift in Sources */,
@@ -232,8 +270,10 @@
 				2CE3CABB2A64E50900E8DA49 /* GamePiece.swift in Sources */,
 				2CE3CAD02A651DF600E8DA49 /* GamePiece+UI.swift in Sources */,
 				2CE3CAC42A64EB8900E8DA49 /* Cannon.swift in Sources */,
+				2CFED8CD2A67D979004131E5 /* Constants.swift in Sources */,
 				2CE3CABE2A64E5E100E8DA49 /* Pawn.swift in Sources */,
 				2CE3CAA82A64D49F00E8DA49 /* xiangqiApp.swift in Sources */,
+				2CFED8C82A67CC6C004131E5 /* Position.swift in Sources */,
 				2CE3CAD72A65281D00E8DA49 /* TopMenuView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,7 +402,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"xingqi/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"xiangqi/Preview Content\"";
 				DEVELOPMENT_TEAM = JAL984MN62;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -391,7 +431,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"xingqi/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"xiangqi/Preview Content\"";
 				DEVELOPMENT_TEAM = JAL984MN62;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

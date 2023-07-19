@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct Position: Equatable {
-    let x: Int
-    let y: Int
-}
 
 enum PieceSide {
     case red
@@ -35,8 +31,9 @@ class GamePiece {
     var position: Position
     weak var delegate: GamePieceDelegate?
 
-    // abstract
-    var availableMoves: [Position] { [] }
+    // abstracts
+    var availableMoves: [Move] { [] }
+
     var title: String { "" }
 
     init(position: Position, side: PieceSide) {
@@ -51,16 +48,9 @@ class GamePiece {
     }
 
     func canMove(to: Position) throws -> Bool {
-        guard availableMoves.contains(position) else { throw MoveError.invalid }
-        return try delegate?.canMove(piece: self, to: position) ?? false
-    }
-
-    func isPositionOnBoard(_ pos: Position) -> Bool {
-
-        if pos.x < 0 || pos.x >= boardSize.h { return false }
-        if pos.y < 0 || pos.y >= boardSize.v { return false }
-
-        return true 
+//        guard availableMoves.contains(position) else { throw MoveError.invalid }
+//        return try delegate?.canMove(piece: self, to: position) ?? false
+        return false
     }
 
     func simulateMove(from: Position, to: Position) throws -> Bool {
@@ -84,5 +74,9 @@ class GamePiece {
 //        }
 
         return false
+    }
+
+    final func makeVerticalStep(_ step: Int) -> Int {
+        side == .red ? -step : step
     }
 }
