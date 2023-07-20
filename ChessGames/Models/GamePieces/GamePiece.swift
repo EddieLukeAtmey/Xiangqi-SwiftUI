@@ -7,24 +7,13 @@
 
 import Foundation
 
-
-enum PieceSide {
-    case red
-    case black
-}
-
-enum MoveError: Error {
-    // Invalid move
-    case invalid
-    case loseKing
-}
-
 protocol GamePieceDelegate: AnyObject {
     func canMove(piece: GamePiece, to: Position) throws -> Bool
     func didMove(piece: GamePiece, to: Position)
 }
 
-class GamePiece {
+class GamePiece: Identifiable {
+    let id = UUID()
     final var pieces: [GamePiece] { GameManager.instance?.pieces ?? [] }
 
     var side: PieceSide
@@ -50,29 +39,6 @@ class GamePiece {
     func canMove(to: Position) throws -> Bool {
 //        guard availableMoves.contains(position) else { throw MoveError.invalid }
 //        return try delegate?.canMove(piece: self, to: position) ?? false
-        return false
-    }
-
-    func simulateMove(from: Position, to: Position) throws -> Bool {
-        // Make a copy of the pieces array to simulate the move
-//        var simulatedPieces = pieces.map { $0.copy() }
-//
-//        // Find the piece at the starting position
-//        guard let piece = simulatedPieces.filter({ $0.position == from && $0.side == side }).first else {
-//            throw MoveError.invalidMove("No piece at starting position")
-//        }
-//
-//        // Simulate the move
-//        piece.position = to
-//
-//        // Check if the move puts the king in check
-//        let kingPosition = simulatedPieces.filter { $0 is King && $0.side == side }.first!.position
-//        for enemyPiece in simulatedPieces.filter({ $0.side != side }) {
-//            if try enemyPiece.canAttack(position: kingPosition, pieces: simulatedPieces) {
-//                return true
-//            }
-//        }
-
         return false
     }
 

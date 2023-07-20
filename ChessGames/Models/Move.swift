@@ -17,7 +17,7 @@ struct Move {
         self.from = from
         self.to = to
 
-        guard let piece = to.gamePiece else { return nil }
+        guard let piece = to.gamePiece else { captured = nil; return } // ok to move to empty spot
         guard piece.side != from.side else { return nil } // move to ally
 
         captured = piece

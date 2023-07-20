@@ -15,7 +15,8 @@ final class General: GamePiece {
 
     override var availableMoves: [Move] {
         var moves = [Move]()
-        Position.MoveDirection.all.forEach {
+        
+        MoveDirection.allCases.forEach {
             guard let pos = position.move($0, 1), pos.isInCastle(side) else { return }
             guard let move = Move(from: self, to: pos) else { return }
             moves.append(move)

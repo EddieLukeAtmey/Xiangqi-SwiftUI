@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GamePieceView: View {
 
-    var piece: GamePiece
+    let piece: GamePiece
 
     var body: some View {
 
@@ -19,7 +19,7 @@ struct GamePieceView: View {
             .fontWeight(.bold)
             .background (
                 Circle()
-                    .stroke(.black, lineWidth: 1)
+                    .stroke(piece.color, lineWidth: 1)
                     .background(Circle().fill(Color(white: 0.8)))
             )
     }

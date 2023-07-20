@@ -13,7 +13,9 @@ final class Advisor: GamePiece {
         side == .red ? "仕" : "士"
     }
 
-    override var availableUpMoves: [Move] {
+    override var availableMoves: [Move] { availableUpMoves + availableDownMoves }
+    
+    private var availableUpMoves: [Move] {
         var moves = [Move]()
 
         if let upLeft = position.move([.up, .left], 1) {
@@ -31,7 +33,7 @@ final class Advisor: GamePiece {
         return moves
     }
 
-    override var availableDownMoves: [Move] {
+    private var availableDownMoves: [Move] {
         var moves = [Move]()
 
         if let downLeft = position.move([.down, .left], 1) {

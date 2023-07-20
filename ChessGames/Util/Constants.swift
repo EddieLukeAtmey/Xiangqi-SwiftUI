@@ -21,3 +21,9 @@ let BoardSize = (h: 9, v: 10)
 let BoardMarkerH = (left: 0, leftCanon: 1, midLeft: 2, castleL: 3, center: 4, castleR: 5, midRight: 6, rightCanon: 7, right: 8)
 
 let BoardMarkerV = (blackBot: 0, blackMid: 2, blackRiver: 4, redRiver: 5, redMid: 7, redBot: 9)
+
+enum PieceSide {
+    case red
+    case black
+}
+typealias MoveDirection = Position.MoveDirection

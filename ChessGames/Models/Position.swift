@@ -18,6 +18,7 @@ struct Position: Equatable {
         static let up = MoveDirection(rawValue: 1 << 2)
         static let down = MoveDirection(rawValue: 1 << 3)
         static let all: MoveDirection = [.left, .right, .up, .down]
+        static let allCases: [MoveDirection] = [.left, .right, .up, .down]
     }
 
     let x: Int
