@@ -29,7 +29,7 @@ final class Knight: GamePiece {
             }
             
             for diagonalDirection in diagonalDirections {
-                if let pos = orthogonalPos.move(diagonalDirection, 1), let move = Move(from: self, to: pos) {
+                if let pos = orthogonalPos.move(direction, 1)?.move(diagonalDirection, 1), let move = Move(from: self, to: pos) {
                     moves.append(move)
                 }
             }

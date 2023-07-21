@@ -18,13 +18,14 @@ final class Cannon: GamePiece {
 
         for direction in Position.MoveDirection.allCases {
             var hasJumpOver = false
-            
-        posLoop: while let pos = position.move(direction, 1) {
-                
+            var step = 1
+        posLoop: while let pos = position.move(direction, step) {
+                step += 1
+
                 // empty space
                 if pos.gamePiece == nil {
                     if !hasJumpOver { moves.append(Move(from: self, to: pos)!) }
-                    continue
+                    continue posLoop
                 }
                 
                 // has obstacle

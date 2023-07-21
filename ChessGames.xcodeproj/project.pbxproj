@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C07E9842A6A931A00636D6B /* LinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07E9832A6A931A00636D6B /* LinesView.swift */; };
 		2C8F19FB2A6910AE00887FFA /* ChessGamesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F19FA2A6910AE00887FFA /* ChessGamesApp.swift */; };
 		2C8F19FF2A6910AF00887FFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F19FE2A6910AF00887FFA /* Assets.xcassets */; };
 		2C8F1A032A6910AF00887FFA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F1A022A6910AF00887FFA /* Preview Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C07E9832A6A931A00636D6B /* LinesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinesView.swift; sourceTree = "<group>"; };
 		2C8F19F72A6910AE00887FFA /* ChessGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChessGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8F19FA2A6910AE00887FFA /* ChessGamesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessGamesApp.swift; sourceTree = "<group>"; };
 		2C8F19FE2A6910AF00887FFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,17 +134,10 @@
 				2CC114BB2A6911A0002060BE /* GamePieceView.swift */,
 				2CC114BC2A6911A0002060BE /* GameView.swift */,
 				2CC114BD2A6911A0002060BE /* BoardView.swift */,
-				2CC114BE2A6911A0002060BE /* Xiangqi */,
 				2CC114BF2A6911A0002060BE /* TopMenuView.swift */,
+				2C07E9832A6A931A00636D6B /* LinesView.swift */,
 			);
 			path = Game;
-			sourceTree = "<group>";
-		};
-		2CC114BE2A6911A0002060BE /* Xiangqi */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Xiangqi;
 			sourceTree = "<group>";
 		};
 		2CC114C02A6911A0002060BE /* Util */ = {
@@ -276,6 +271,7 @@
 				2CC114E22A6911A0002060BE /* Cannon.swift in Sources */,
 				2CC114DF2A6911A0002060BE /* Knight.swift in Sources */,
 				2CC114DA2A6911A0002060BE /* Number+Extensions.swift in Sources */,
+				2C07E9842A6A931A00636D6B /* LinesView.swift in Sources */,
 				2C8F19FB2A6910AE00887FFA /* ChessGamesApp.swift in Sources */,
 				2CC114E02A6911A0002060BE /* General.swift in Sources */,
 				2CC114DB2A6911A0002060BE /* Errors.swift in Sources */,

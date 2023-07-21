@@ -15,8 +15,10 @@ final class Rook: GamePiece {
         var moves = [Move]()
 
         for direction in Position.MoveDirection.allCases {
-            while let pos = position.move(direction, 1), let m = Move(from: self, to: pos)  {
+            var step = 1
+            while let pos = position.move(direction, step), let m = Move(from: self, to: pos)  {
                 moves.append(m)
+                step += 1
             }
         }
 
