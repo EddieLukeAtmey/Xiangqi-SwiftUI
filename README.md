@@ -5,12 +5,13 @@ Study SwiftUI, try to make a Xiangqi game
 - board
 - pieces
 - game manager
-
-### next step: 
 - move validation
-- check & check mate
 - display pieces
 - display available moves
+
+### next step: 
+- moving the piece
+- check & check mate
 - surrender, asking for draw
 - move rules (continuos check, continuos capture...)
 - timer

@@ -31,7 +31,7 @@ final class Bishop: GamePiece {
     
     private func canMoveByRule(to: Position) -> Bool {
         // Can't cross the river
-        if (side == .red && to.y > 4) || (side == .black && to.y < 5) {
+        if (side == .red && to.y < 5) || (side == .black && to.y > 4) {
             return false
         }
         
