@@ -78,3 +78,7 @@ struct Position: Equatable {
         return y.isIn(black)
     }
 }
+
+extension Position: Hashable {
+    
+}

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C07E9842A6A931A00636D6B /* LinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07E9832A6A931A00636D6B /* LinesView.swift */; };
+		2C07E9862A6A9D9300636D6B /* MoveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07E9852A6A9D9300636D6B /* MoveView.swift */; };
 		2C8F19FB2A6910AE00887FFA /* ChessGamesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F19FA2A6910AE00887FFA /* ChessGamesApp.swift */; };
 		2C8F19FF2A6910AF00887FFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F19FE2A6910AF00887FFA /* Assets.xcassets */; };
 		2C8F1A032A6910AF00887FFA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F1A022A6910AF00887FFA /* Preview Assets.xcassets */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		2C07E9832A6A931A00636D6B /* LinesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinesView.swift; sourceTree = "<group>"; };
+		2C07E9852A6A9D9300636D6B /* MoveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveView.swift; sourceTree = "<group>"; };
 		2C8F19F72A6910AE00887FFA /* ChessGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChessGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8F19FA2A6910AE00887FFA /* ChessGamesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessGamesApp.swift; sourceTree = "<group>"; };
 		2C8F19FE2A6910AF00887FFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				2CC114BD2A6911A0002060BE /* BoardView.swift */,
 				2CC114BF2A6911A0002060BE /* TopMenuView.swift */,
 				2C07E9832A6A931A00636D6B /* LinesView.swift */,
+				2C07E9852A6A9D9300636D6B /* MoveView.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				2CC114DF2A6911A0002060BE /* Knight.swift in Sources */,
 				2CC114DA2A6911A0002060BE /* Number+Extensions.swift in Sources */,
 				2C07E9842A6A931A00636D6B /* LinesView.swift in Sources */,
+				2C07E9862A6A9D9300636D6B /* MoveView.swift in Sources */,
 				2C8F19FB2A6910AE00887FFA /* ChessGamesApp.swift in Sources */,
 				2CC114E02A6911A0002060BE /* General.swift in Sources */,
 				2CC114DB2A6911A0002060BE /* Errors.swift in Sources */,
@@ -406,7 +410,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ChessGames/Preview Content\"";
-				DEVELOPMENT_TEAM = 9WQ9GA3FD9;
+				DEVELOPMENT_TEAM = JAL984MN62;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -443,7 +447,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ChessGames/Preview Content\"";
-				DEVELOPMENT_TEAM = 9WQ9GA3FD9;
+				DEVELOPMENT_TEAM = JAL984MN62;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

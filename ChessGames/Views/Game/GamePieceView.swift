@@ -10,6 +10,7 @@ import SwiftUI
 struct GamePieceView: View {
 
     let piece: GamePiece
+    var selected = false
 
     var body: some View {
 
@@ -22,6 +23,7 @@ struct GamePieceView: View {
                     .stroke(piece.color, lineWidth: 1)
                     .background(Circle().fill(Color(white: 0.8)))
             )
+            .scaleEffect(selected ? 1.5 : 1.0)
     }
 }
 

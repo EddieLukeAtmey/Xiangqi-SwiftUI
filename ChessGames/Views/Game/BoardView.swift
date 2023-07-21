@@ -10,6 +10,7 @@ import SwiftUI
 struct BoardView: View {
 
     @State var pieces: [GamePiece]
+    @State var selectedPiece: GamePiece?
 
     var body: some View {
         let width = min(UIScreen.main.bounds.width, UIScreen.main.bounds.height) * 8/9
@@ -26,8 +27,19 @@ struct BoardView: View {
             
             // Add the game pieces
             ForEach(pieces, id: \.self) { piece in
-                GamePieceView(piece: piece)
+                GamePieceView(piece: piece, selected: piece == selectedPiece)
                     .position(x: CGFloat(piece.position.x) * spacing, y: CGFloat(piece.position.y) * spacing)
+                    .onTapGesture {
+                        if selectedPiece == piece { selectedPiece = nil }
+                        else { selectedPiece = piece }
+                    }
+            }
+
+            // Add available moves
+            if let selectedPiece = selectedPiece {
+                ForEach(selectedPiece.availableMoves, id: \.to) { move in
+                    MoveView(move: move, spacing: spacing)
+                }
             }
         }
         .frame(width:  width, height: fullHeigth)
