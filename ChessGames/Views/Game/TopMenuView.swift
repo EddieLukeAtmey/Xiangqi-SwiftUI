@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TopMenuView: View {
+    
+    @State var started: Bool = false
     let p1Name: String
     let p2Name: String
 
@@ -27,17 +29,24 @@ struct TopMenuView: View {
                     .font(.title)
             }
 
-            Button(action: {
-                onStart()
-            }, label: {
-                Text("Start")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(10)
-            })
+            if started {
+                Spacer()
+            }
+            else {
 
+                Button(action: {
+                    onStart()
+                    started.toggle()
+                }, label: {
+                    Text("Start")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                })
+            }
+            
             VStack(alignment: .trailing) {
                 Text(p2Name)
                     .foregroundColor(.black)

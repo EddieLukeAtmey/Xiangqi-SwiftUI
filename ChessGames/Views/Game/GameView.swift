@@ -19,6 +19,7 @@ struct GameView: View {
                         p2Timer: 15*60) {
 
                 // Start the game
+                
             }
             BoardView(pieces: gameManager.pieces)
         }

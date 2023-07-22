@@ -2,7 +2,7 @@
 //  LinesView.swift
 //  ChessGames
 //
-//  Created by Eddie on 21/07/2023.
+//  Created by Eddie Luke Atmey on 20/07/2023.
 //
 
 import SwiftUI

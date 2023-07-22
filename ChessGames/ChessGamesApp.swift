@@ -11,7 +11,8 @@ import SwiftUI
 struct xingqiApp: App {
     var body: some Scene {
         WindowGroup {
-            MainMenuView()
+//            MainMenuView()
+            GameView(gameManager: .init())
         }
     }
 }
