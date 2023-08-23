@@ -10,17 +10,6 @@ import Foundation
 /// In an axis with origin located in top-left
 struct Position: Equatable {
 
-    // https://medium.com/sahibinden-technology/bitwise-enum-values-with-the-optionset-in-swift-c5547003478f
-    struct MoveDirection: OptionSet {
-        let rawValue: Int
-        static let left = MoveDirection(rawValue: 1 << 0)
-        static let right = MoveDirection(rawValue: 1 << 1)
-        static let up = MoveDirection(rawValue: 1 << 2)
-        static let down = MoveDirection(rawValue: 1 << 3)
-        static let all: MoveDirection = [.left, .right, .up, .down]
-        static let allCases: [MoveDirection] = [.left, .right, .up, .down]
-    }
-
     let x: Int
     let y: Int
 
@@ -38,8 +27,22 @@ struct Position: Equatable {
         self.x = x
         self.y = y
     }
+}
 
+// MARK: - actions
+extension Position {
     var gamePiece: GamePiece? { GameManager.instance?.pieces.first(where: { $0.position == self }) }
+
+    // https://medium.com/sahibinden-technology/bitwise-enum-values-with-the-optionset-in-swift-c5547003478f
+    struct MoveDirection: OptionSet {
+        let rawValue: Int
+        static let left = MoveDirection(rawValue: 1 << 0)
+        static let right = MoveDirection(rawValue: 1 << 1)
+        static let up = MoveDirection(rawValue: 1 << 2)
+        static let down = MoveDirection(rawValue: 1 << 3)
+        static let all: MoveDirection = [.left, .right, .up, .down]
+        static let allCases: [MoveDirection] = [.left, .right, .up, .down]
+    }
 
     func move(_ d: MoveDirection, _ step: Int) -> Position? {
         var p: Position? = self
@@ -67,7 +70,7 @@ struct Position: Equatable {
         return .init(x, y + step)
     }
 
-    func isInCastle(_ side: PieceSide? = nil) -> Bool {
+    func isInCastle(_ side: GameSide? = nil) -> Bool {
         guard x.isIn(CastleHorizontalRange) else { return false }
 
         let black = BlackCastle.v

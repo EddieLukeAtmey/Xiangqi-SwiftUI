@@ -22,4 +22,11 @@ struct Move {
 
         captured = piece
     }
+
+    /// - returns: original position
+    func perform() -> Position {
+        let org = from.position
+        from.position = to
+        return org
+    }
 }

@@ -7,12 +7,25 @@
 
 import Foundation
 
+enum GameState {
+    case initialized
+    case isPlaying(_ movingTurn: GameSide)
+    case checkedMate(_ losingSide: GameSide)
+    case draw
+}
+
 // To handle game logic
-final class GameManager {
+final class GameManager: ObservableObject {
 
     private(set) var pieces: [GamePiece]
     private(set) var capturedPieces = [GamePiece]()
-    private(set) var moves = [(GamePiece, Position)]()
+
+    // moves and their original position
+    private(set) var moves = [(Move, Position)]()
+    private(set) var state = GameState.initialized
+    private(set) var currentPlayer: GameSide = .red {
+        didSet { state = .isPlaying(currentPlayer) }
+    }
 
     // MARK: - Setup
     static var instance: GameManager?
@@ -23,7 +36,7 @@ final class GameManager {
 
         GameManager.allStartingPositions.forEach { pos in
 
-            let side: PieceSide = pos.y > BoardMarkerV.redRiver ? .red : .black
+            let side: GameSide = pos.y > BoardMarkerV.redRiver ? .red : .black
 
             switch (pos.x, pos.y) {
 
@@ -75,40 +88,52 @@ final class GameManager {
         return p
     }()
 
-    // MARK: - Actions
+    func getGeneral(of side: GameSide) -> General {
+        pieces.first(where: { $0.side == side && $0 is General }) as! General
+    }
 }
 
-extension GameManager: GamePieceDelegate {
-    func canMove(piece: GamePiece, to: Position) throws -> Bool {
-        return false
-    }
+// MARK: - Actions
+extension GameManager {
+    func canMove(_ move: Move) throws -> Bool {
+        let myKing = getGeneral(of: move.from.side)
 
-    func didMove(piece: GamePiece, to: Position) {
+        // simulate move
+        var otherSidePieces = Set(pieces.filter({ $0.side != move.from.side }))
 
-        if let idx = pieces.firstIndex(where: { $0.position == to }) {
-            capturedPieces.append(pieces[idx])
-            pieces.remove(at: idx)
-        }
-        moves.append((piece, to))
-
-        // Check
-        let king = pieces.first { $0 is General && $0.side != piece.side }!
-        if (try? isInCheck(king: king)) == true {
-            print("\(king.side) is in check!")
+        if let c = move.captured {
+            otherSidePieces.remove(c)
         }
 
-        // Update UI?
-    }
-
-    private func isInCheck(king: GamePiece) throws -> Bool {
-        // Check if any of the opposing pieces can capture the king
-        let opposingPieces = pieces.filter { $0.side != king.side }
-        for piece in opposingPieces {
-            if try piece.canMove(to: king.position) {
-                return true
+        // check if move is valid
+        try otherSidePieces.forEach {
+            if $0.canCheck(myKing) {
+                throw MoveError.loseKing
             }
         }
 
-        return false
+        return true
+    }
+
+    func performMove(_ move: Move) throws {
+        // Check if the move is valid and update the game state accordingly
+        guard try canMove(move) else { return }
+        if let captured = move.captured, let idx = pieces.firstIndex(of: captured) {
+            capturedPieces.append(captured)
+            pieces.remove(at: idx)
+        }
+
+        let org = move.perform()
+        moves.append((move, org))
+
+        updateGameStatus()
+    }
+
+    func updateGameStatus() {
+
+        // Update turn
+        currentPlayer.toggle()
+
+        // King in check status
     }
 }

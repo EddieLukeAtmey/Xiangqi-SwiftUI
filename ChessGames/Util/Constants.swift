@@ -22,8 +22,14 @@ let BoardMarkerH = (left: 0, leftCanon: 1, midLeft: 2, castleL: 3, center: 4, ca
 
 let BoardMarkerV = (blackBot: 0, blackMid: 2, blackRiver: 4, redRiver: 5, redMid: 7, redBot: 9)
 
-enum PieceSide {
+enum GameSide {
     case red
     case black
+
+    mutating func toggle() {
+        if self == .red { self = .black }
+        else { self = .red }
+    }
+
 }
 typealias MoveDirection = Position.MoveDirection

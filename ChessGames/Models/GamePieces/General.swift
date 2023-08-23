@@ -22,6 +22,23 @@ final class General: GamePiece {
             moves.append(move)
         }
 
+        // special move: flying general
+        var offSet = side == .black ? 1 : -1
+        var i = position.y + offSet
+
+        while let p = Position(position.x, i) {
+            guard let piece = p.gamePiece else { // No blocking piece
+                i += offSet
+                continue
+            }
+
+            // is blocked by a general
+            if piece is General, let m = Move(from: self, to: p) {
+                moves.append(m)
+            }// else
+            break
+        }
+
         return moves
     }
 }

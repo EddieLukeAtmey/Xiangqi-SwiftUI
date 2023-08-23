@@ -42,4 +42,8 @@ final class Bishop: GamePiece {
         
         return midPos.gamePiece == nil 
     }
+
+    override func canCheck(_ king: General) -> Bool {
+        return false
+    }
 }

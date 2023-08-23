@@ -13,18 +13,5 @@ enum Rule: Error {
 }
 
 enum MoveError: Error {
-    // Invalid move
-    case blocked
-    case loseKing(KingInCheck)
-    case invalid
+    case loseKing
 }
-
-// MARK: - Check
-protocol KingInCheck: Error {
-    var checkingPiece: [GamePiece] { get }
-}
-
-struct CheckXiangqi: KingInCheck {
-    var checkingPiece: [GamePiece]
-}
-

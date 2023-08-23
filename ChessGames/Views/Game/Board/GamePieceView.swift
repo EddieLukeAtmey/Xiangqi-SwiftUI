@@ -24,6 +24,7 @@ struct GamePieceView: View {
                     .background(Circle().fill(Color(white: 0.8)))
             )
             .scaleEffect(selected ? 1.5 : 1.0)
+//            .animation(.easeInOut(duration: 0.2), value: selected)
     }
 }
 

@@ -26,4 +26,8 @@ final class Advisor: GamePiece {
 
         return moves
     }
+
+    override func canCheck(_ king: General) -> Bool {
+        return false
+    }
 }

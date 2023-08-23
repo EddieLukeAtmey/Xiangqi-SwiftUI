@@ -19,9 +19,8 @@ struct GameView: View {
                         p2Timer: 15*60) {
 
                 // Start the game
-                
             }
-            BoardView(pieces: gameManager.pieces)
+            BoardView(gameManager: gameManager)
         }
         .padding(.zero)
         .frame(maxWidth: .infinity)
