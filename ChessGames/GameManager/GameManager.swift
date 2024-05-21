@@ -6,12 +6,12 @@
 //
 
 import Foundation
+import Combine
 
 enum GameState {
     case initialized
     case isPlaying(_ movingTurn: GameSide)
-    case checkedMate(_ losingSide: GameSide)
-    case draw
+    case ended(_ losingSide: GameSide?)
 }
 
 // To handle game logic
@@ -26,6 +26,11 @@ final class GameManager: ObservableObject {
     private(set) var currentPlayer: GameSide = .red {
         didSet { state = .isPlaying(currentPlayer) }
     }
+
+    @Published var p1Timer: Int
+    @Published var p2Timer: Int
+
+    private var timer: AnyCancellable?
 
     // MARK: - Setup
     static var instance: GameManager?
@@ -63,6 +68,8 @@ final class GameManager: ObservableObject {
             }
         }
         self.pieces = pieces
+        self.p1Timer = 15 * 60
+        self.p2Timer = 15 * 60
         Self.instance = self
     }
 
@@ -90,6 +97,29 @@ final class GameManager: ObservableObject {
 
     func getGeneral(of side: GameSide) -> General {
         pieces.first(where: { $0.side == side && $0 is General }) as! General
+    }
+
+    func start() {
+        state = .isPlaying(.red)
+        startTimer()
+    }
+
+    private func startTimer() {
+        timer?.cancel()
+        timer = Timer.publish(every: 1, on: .main, in: .common)
+            .autoconnect()
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                if self.currentPlayer == .red {
+                    self.p1Timer -= 1
+                } else {
+                    self.p2Timer -= 1
+                }
+
+                if self.p1Timer <= 0 || self.p2Timer <= 0 {
+                    self.endGame(loser: self.currentPlayer)
+                }
+            }
     }
 }
 
@@ -127,6 +157,11 @@ extension GameManager {
         moves.append((move, org))
 
         updateGameStatus()
+    }
+
+    private func endGame(loser: GameSide? = nil) {
+        timer?.cancel()
+        state = .ended(loser)
     }
 
     func updateGameStatus() {

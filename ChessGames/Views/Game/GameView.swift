@@ -9,16 +9,15 @@ import SwiftUI
 
 struct GameView: View {
 
-    var gameManager: GameManager
+    @EnvironmentObject var gameManager: GameManager
 
     var body: some View {
         VStack {
             TopMenuView(p1Name: "p1",
-                        p2Name: "p2",
-                        p1Timer: 15*60,
-                        p2Timer: 15*60) {
+                        p2Name: "p2") {
 
                 // Start the game
+                gameManager.start()
             }
             BoardView(gameManager: gameManager)
         }

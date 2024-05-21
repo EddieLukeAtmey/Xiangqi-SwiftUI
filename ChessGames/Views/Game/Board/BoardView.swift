@@ -10,18 +10,16 @@ import SwiftUI
 struct BoardView: View {
 
     @ObservedObject var gameManager: GameManager
-
-//    @State var pieces: [GamePiece]
     @State var selectedPiece: GamePiece?
 
     var body: some View {
         let width = min(UIScreen.main.bounds.width, UIScreen.main.bounds.height) * 8/9
         let spacing = width / 8 // horizontal
-        
+
         // vertical
         let fullHeigth = spacing * 9
         let halfHeigth = spacing * 4
-        
+
         ZStack {
             Color(red: 240/255, green: 208/255, blue: 160/255)
             

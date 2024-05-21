@@ -13,8 +13,7 @@ struct TopMenuView: View {
     let p1Name: String
     let p2Name: String
 
-    @State var p1Timer: Int
-    @State var p2Timer: Int
+    @EnvironmentObject var gameManager: GameManager
 
     let onStart: () -> Void
 
@@ -25,7 +24,7 @@ struct TopMenuView: View {
                     .foregroundColor(.red)
                     .font(.title)
 
-                Text("\(p1Timer)")
+                Text("\(formattedTime(from: gameManager.p1Timer))")
                     .font(.title)
             }
 
@@ -52,18 +51,23 @@ struct TopMenuView: View {
                     .foregroundColor(.black)
                     .font(.title)
 
-                Text("\(p2Timer)")
+                Text("\(formattedTime(from: gameManager.p2Timer))")
                     .font(.title)
             }
         }
         .frame(maxWidth: .infinity)
     }
 
+    private func formattedTime(from totalSeconds: Int) -> String {
+        let minutes = totalSeconds / 60
+        let seconds = totalSeconds % 60
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
 }
 
 struct TopMenuView_Previews: PreviewProvider {
     static var previews: some View {
-        TopMenuView(p1Name: "P1", p2Name: "P2", p1Timer: 15*60, p2Timer: 15*60) {
+        TopMenuView(p1Name: "P1", p2Name: "P2", gameManager: .init()) {
             // Nothing
         }
     }

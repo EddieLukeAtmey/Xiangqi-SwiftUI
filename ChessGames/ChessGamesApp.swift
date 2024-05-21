@@ -9,10 +9,14 @@ import SwiftUI
 
 @main
 struct xingqiApp: App {
+
+    // TODO: Remove when implement later
+    var tempGameManager = GameManager()
+
     var body: some Scene {
         WindowGroup {
 //            MainMenuView()
-            GameView(gameManager: .init())
+            GameView().environmentObject(tempGameManager)
         }
     }
 }
