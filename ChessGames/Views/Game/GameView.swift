@@ -19,7 +19,7 @@ struct GameView: View {
                 // Start the game
                 gameManager.start()
             }
-            BoardView(gameManager: gameManager)
+            BoardView()
         }
         .padding(.zero)
         .frame(maxWidth: .infinity)

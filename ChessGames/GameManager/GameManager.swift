@@ -128,12 +128,15 @@ extension GameManager {
     func canMove(_ move: Move) throws -> Bool {
         let myKing = getGeneral(of: move.from.side)
 
-        // simulate move
+        // simulate the move
         var otherSidePieces = Set(pieces.filter({ $0.side != move.from.side }))
 
-        if let c = move.captured {
-            otherSidePieces.remove(c)
+        if let captured = move.captured {
+            otherSidePieces.remove(captured)
         }
+
+        let originalPosition = move.perform()
+        defer { move.from.position = originalPosition }
 
         // check if move is valid
         try otherSidePieces.forEach {
@@ -169,6 +172,24 @@ extension GameManager {
         // Update turn
         currentPlayer.toggle()
 
-        // King in check status
+        // Check if the current player's king is in check or checkmate
+        let myKing = getGeneral(of: currentPlayer)
+
+        let opponentPieces = pieces.filter { $0.side != currentPlayer }
+        let isInCheck = opponentPieces.contains { $0.canCheck(myKing) }
+
+        if isInCheck {
+//            let canMoveOutOfCheck = pieces.filter { $0.side == currentPlayer }.contains {
+//                !$0.availableMoves.filter { move in
+//                    try? self.canMove(move) ?? false
+//                }.isEmpty
+//            }
+
+//            if !canMoveOutOfCheck {
+//                endGame(loser: currentPlayer)
+//                state = .checkedMate(currentPlayer)
+//                return
+//            }
+        }
     }
 }

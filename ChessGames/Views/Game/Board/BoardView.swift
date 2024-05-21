@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BoardView: View {
 
-    @ObservedObject var gameManager: GameManager
+    @EnvironmentObject var gameManager: GameManager
     @State var selectedPiece: GamePiece?
 
     var body: some View {
@@ -35,6 +35,14 @@ struct BoardView: View {
                         else if piece.side == gameManager.currentPlayer {
                             // Set the selected piece in the GameManager
                             selectedPiece = piece
+                        } else if let sp = selectedPiece, let move = Move(from: sp, to: piece.position) { // Capture
+                            do {
+                                try gameManager.performMove(move)
+                                selectedPiece = nil
+                            } catch {
+                                // Display toast error
+                                print(error)
+                            }
                         }
                     }
                     .animation(.easeIn(duration: 0.1), value: selectedPiece)
@@ -67,6 +75,6 @@ struct BoardView: View {
 struct BoardView_Previews: PreviewProvider {
     static var previews: some View {
         let gm = GameManager()
-        BoardView(gameManager: gm)
+        BoardView().environmentObject(gm)
     }
 }
