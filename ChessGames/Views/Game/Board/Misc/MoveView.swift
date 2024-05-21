@@ -13,8 +13,16 @@ struct MoveView: View {
 
     var body: some View {
         Circle()
-            .fill(move.captured == nil ? Color.green : Color.red)
+            .fill(getFillColor())
             .frame(width: spacing / 5, height: spacing / 5)
             .position(x: CGFloat(move.to.x) * spacing, y: CGFloat(move.to.y) * spacing)
+    }
+
+    private func getFillColor() -> Color {
+        if let captured = move.captured {
+            return captured.side == .red ? Color.black : Color.red
+        } else {
+            return Color.green
+        }
     }
 }

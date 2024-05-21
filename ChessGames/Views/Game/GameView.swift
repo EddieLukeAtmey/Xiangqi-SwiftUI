@@ -13,12 +13,7 @@ struct GameView: View {
 
     var body: some View {
         VStack {
-            TopMenuView(p1Name: "p1",
-                        p2Name: "p2") {
-
-                // Start the game
-                gameManager.start()
-            }
+            TopMenuView(p1Name: "p1", p2Name: "p2")
             BoardView()
         }
         .padding(.zero)

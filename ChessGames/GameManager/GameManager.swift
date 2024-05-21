@@ -22,22 +22,52 @@ final class GameManager: ObservableObject {
 
     // moves and their original position
     private(set) var moves = [(Move, Position)]()
-    private(set) var state = GameState.initialized
+    @Published private(set) var state = GameState.initialized
     private(set) var currentPlayer: GameSide = .red {
         didSet { state = .isPlaying(currentPlayer) }
     }
 
-    @Published var p1Timer: Int
-    @Published var p2Timer: Int
+    @Published var p1Timer: Int = DefaultPlayTimeSeconds
+    @Published var p2Timer: Int = DefaultPlayTimeSeconds
 
     private var timer: AnyCancellable?
 
     // MARK: - Setup
     static var instance: GameManager?
     init() {
+        pieces = []
+        resetBoard()
+        Self.instance = self
+    }
+
+    static let allStartingPositions: [Position] = {
+        var p = [Position]()
+        for i in BoardMarkerH.left...BoardMarkerH.right {
+            p.append(.init(x: i, y: BoardMarkerV.blackBot))
+            p.append(.init(x: i, y: BoardMarkerV.redBot))
+
+            // Pawn
+            if i & 1 == 0 {
+                p.append(.init(x: i, y: BoardMarkerV.blackRiver - 1))
+                p.append(.init(x: i, y: BoardMarkerV.redRiver + 1))
+            }
+
+            if i == BoardMarkerH.leftCanon || i == BoardMarkerH.rightCanon {
+                // Cannon
+                p.append(.init(x: i, y: BoardMarkerV.blackMid))
+                p.append(.init(x: i, y: BoardMarkerV.redMid))
+            }
+        }
+
+        return p
+    }()
+
+    func resetBoard() {
 
         // setup pieces and poisition
-        var pieces = [GamePiece]()
+        pieces.removeAll()
+        capturedPieces.removeAll()
+        moves.removeAll()
 
         GameManager.allStartingPositions.forEach { pos in
 
@@ -67,33 +97,11 @@ final class GameManager: ObservableObject {
                 pieces.append(piece)
             }
         }
-        self.pieces = pieces
-        self.p1Timer = 15 * 60
-        self.p2Timer = 15 * 60
-        Self.instance = self
+
+        state = .initialized
+        p1Timer = DefaultPlayTimeSeconds
+        p2Timer = DefaultPlayTimeSeconds
     }
-
-    static let allStartingPositions: [Position] = {
-        var p = [Position]()
-        for i in BoardMarkerH.left...BoardMarkerH.right {
-            p.append(.init(x: i, y: BoardMarkerV.blackBot))
-            p.append(.init(x: i, y: BoardMarkerV.redBot))
-
-            // Pawn
-            if i & 1 == 0 {
-                p.append(.init(x: i, y: BoardMarkerV.blackRiver - 1))
-                p.append(.init(x: i, y: BoardMarkerV.redRiver + 1))
-            }
-
-            if i == BoardMarkerH.leftCanon || i == BoardMarkerH.rightCanon {
-                // Cannon
-                p.append(.init(x: i, y: BoardMarkerV.blackMid))
-                p.append(.init(x: i, y: BoardMarkerV.redMid))
-            }
-        }
-
-        return p
-    }()
 
     func getGeneral(of side: GameSide) -> General {
         pieces.first(where: { $0.side == side && $0 is General }) as! General
@@ -162,9 +170,11 @@ extension GameManager {
         updateGameStatus()
     }
 
-    private func endGame(loser: GameSide? = nil) {
+    func endGame(loser: GameSide? = nil) {
         timer?.cancel()
         state = .ended(loser)
+
+        print("Game ended: \(loser != nil ? loser.debugDescription : "Draw")")
     }
 
     func updateGameStatus() {
@@ -179,17 +189,15 @@ extension GameManager {
         let isInCheck = opponentPieces.contains { $0.canCheck(myKing) }
 
         if isInCheck {
-//            let canMoveOutOfCheck = pieces.filter { $0.side == currentPlayer }.contains {
-//                !$0.availableMoves.filter { move in
-//                    try? self.canMove(move) ?? false
-//                }.isEmpty
-//            }
+            let canMoveOutOfCheck = pieces.filter { $0.side == currentPlayer }.contains {
+                !$0.availableMoves.filter { move in
+                    (try? self.canMove(move)) == true
+                }.isEmpty
+            }
 
-//            if !canMoveOutOfCheck {
-//                endGame(loser: currentPlayer)
-//                state = .checkedMate(currentPlayer)
-//                return
-//            }
+            if !canMoveOutOfCheck {
+                endGame(loser: currentPlayer)
+            }
         }
     }
 }

@@ -38,7 +38,7 @@ struct MainMenuView: View {
             }
         }
         .fullScreenCover(isPresented: $isGameViewPresented) {
-            GameView(gameManager: .init())
+            GameView().environmentObject(GameManager())
         }
         .transaction { t in
             t.disablesAnimations = true

@@ -12,6 +12,13 @@ enum Rule: Error {
     case checkRule
 }
 
-enum MoveError: Error {
+enum MoveError: LocalizedError {
     case loseKing
+
+    var errorDescription: String? {
+        switch self {
+        case .loseKing:
+            return "You cannot make this move as it would put your king in check."
+        }
+    }
 }

@@ -15,8 +15,8 @@ struct xingqiApp: App {
 
     var body: some Scene {
         WindowGroup {
-//            MainMenuView()
-            GameView().environmentObject(tempGameManager)
+            MainMenuView().environmentObject(tempGameManager)
+//            GameView().environmentObject(tempGameManager)
         }
     }
 }

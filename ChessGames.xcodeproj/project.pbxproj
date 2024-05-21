@@ -32,6 +32,7 @@
 		2CC114F02A6BC2DA002060BE /* GamePieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC114EC2A6BC2DA002060BE /* GamePieceView.swift */; };
 		2CC114F12A6BC2DA002060BE /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC114ED2A6BC2DA002060BE /* BoardView.swift */; };
 		2CC114F22A6BC2DA002060BE /* LinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC114EF2A6BC2DA002060BE /* LinesView.swift */; };
+		2CC44A0C2BFCF16200E4C7C9 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC44A0B2BFCF16200E4C7C9 /* ToastView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		2CC114EC2A6BC2DA002060BE /* GamePieceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamePieceView.swift; sourceTree = "<group>"; };
 		2CC114ED2A6BC2DA002060BE /* BoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		2CC114EF2A6BC2DA002060BE /* LinesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesView.swift; sourceTree = "<group>"; };
+		2CC44A0B2BFCF16200E4C7C9 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		2CC114B62A6911A0002060BE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2CC44A0A2BFCF13A00E4C7C9 /* Toast */,
 				2CC114B72A6911A0002060BE /* ViewModels */,
 				2CC114B92A6911A0002060BE /* MainMenuView.swift */,
 				2CC114BA2A6911A0002060BE /* Game */,
@@ -210,6 +213,14 @@
 			path = Misc;
 			sourceTree = "<group>";
 		};
+		2CC44A0A2BFCF13A00E4C7C9 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				2CC44A0B2BFCF16200E4C7C9 /* ToastView.swift */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -296,6 +307,7 @@
 				2CC114E02A6911A0002060BE /* General.swift in Sources */,
 				2CC114DB2A6911A0002060BE /* Errors.swift in Sources */,
 				2CC114D62A6911A0002060BE /* GameView.swift in Sources */,
+				2CC44A0C2BFCF16200E4C7C9 /* ToastView.swift in Sources */,
 				2CC114E62A6911A1002060BE /* Position.swift in Sources */,
 				2CC114E12A6911A0002060BE /* Bishop.swift in Sources */,
 				2CC114E32A6911A0002060BE /* Rook.swift in Sources */,

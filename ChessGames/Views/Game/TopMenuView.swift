@@ -9,13 +9,10 @@ import SwiftUI
 
 struct TopMenuView: View {
     
-    @State var started: Bool = false
     let p1Name: String
     let p2Name: String
 
     @EnvironmentObject var gameManager: GameManager
-
-    let onStart: () -> Void
 
     var body: some View {
         HStack {
@@ -28,14 +25,12 @@ struct TopMenuView: View {
                     .font(.title)
             }
 
-            if started {
-                Spacer()
-            }
-            else {
+            Spacer()
 
+            switch gameManager.state {
+            case .initialized: 
                 Button(action: {
-                    onStart()
-                    started.toggle()
+                    gameManager.start()
                 }, label: {
                     Text("Start")
                         .font(.headline)
@@ -44,8 +39,41 @@ struct TopMenuView: View {
                         .background(Color.blue)
                         .cornerRadius(10)
                 })
+
+            case .ended(let losingSide):
+
+                VStack {
+                    if var losingSide {
+                        Text("\(losingSide)'s lose")
+                            .font(.title)
+                            .textCase(.uppercase)
+                    } else {
+                        Text("Draw")
+                            .font(.subheadline)
+                            .textCase(.uppercase)
+                    }
+
+                    Button(action: {
+                        gameManager.resetBoard()
+                    }, label: {
+                        Text("Restart")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                    })
+                }
+
+            case .isPlaying(let movingSide):
+
+                Text("\(movingSide)'s turn")
+                    .font(.title)
+                    .textCase(.uppercase)
             }
-            
+
+            Spacer()
+
             VStack(alignment: .trailing) {
                 Text(p2Name)
                     .foregroundColor(.black)
@@ -66,9 +94,9 @@ struct TopMenuView: View {
 }
 
 struct TopMenuView_Previews: PreviewProvider {
+
     static var previews: some View {
-        TopMenuView(p1Name: "P1", p2Name: "P2", gameManager: .init()) {
-            // Nothing
-        }
+        TopMenuView(p1Name: "P1", p2Name: "P2")
+        .environmentObject(GameManager())
     }
 }

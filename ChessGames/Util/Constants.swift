@@ -22,6 +22,8 @@ let BoardMarkerH = (left: 0, leftCanon: 1, midLeft: 2, castleL: 3, center: 4, ca
 
 let BoardMarkerV = (blackBot: 0, blackMid: 2, blackRiver: 4, redRiver: 5, redMid: 7, redBot: 9)
 
+let DefaultPlayTimeSeconds = 15 * 60
+
 enum GameSide {
     case red
     case black
