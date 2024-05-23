@@ -27,9 +27,3 @@ struct GamePieceView: View {
 //            .animation(.easeInOut(duration: 0.2), value: selected)
     }
 }
-
-struct GamePieceView_Previews: PreviewProvider {
-    static var previews: some View {
-        GamePieceView(piece: Pawn(position: .init(x: 0, y: 0), side: .red))
-    }
-}

@@ -12,7 +12,7 @@ struct TopMenuView: View {
     let p1Name: String
     let p2Name: String
 
-    @EnvironmentObject var gameManager: GameManager
+    @EnvironmentObject var gameManager: XiangqiManager
 
     var body: some View {
         HStack {
@@ -97,6 +97,6 @@ struct TopMenuView_Previews: PreviewProvider {
 
     static var previews: some View {
         TopMenuView(p1Name: "P1", p2Name: "P2")
-        .environmentObject(GameManager())
+        .environmentObject(XiangqiManager())
     }
 }

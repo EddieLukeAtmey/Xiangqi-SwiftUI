@@ -23,14 +23,14 @@ final class Cannon: GamePiece {
                 step += 1
 
                 // empty space
-                if pos.gamePiece == nil {
-                    if !hasJumpOver { moves.append(Move(from: self, to: pos)!) }
+                if gameManager?.getPiece(at: pos) == nil {
+                    if !hasJumpOver { moves.append(Move(self, to: pos)!) }
                     continue posLoop
                 }
                 
                 // has obstacle
                 if hasJumpOver { // had one
-                    if let m = (Move(from: self, to: pos)) { // Can capture
+                    if let m = (Move(self, to: pos)) { // Can capture
                         moves.append(m)
                     }
                     break posLoop

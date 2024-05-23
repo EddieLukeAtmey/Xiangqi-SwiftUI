@@ -33,6 +33,7 @@
 		2CC114F12A6BC2DA002060BE /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC114ED2A6BC2DA002060BE /* BoardView.swift */; };
 		2CC114F22A6BC2DA002060BE /* LinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC114EF2A6BC2DA002060BE /* LinesView.swift */; };
 		2CC44A0C2BFCF16200E4C7C9 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC44A0B2BFCF16200E4C7C9 /* ToastView.swift */; };
+		2CC578A32BFF3BDB0087390F /* XiangqiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC578A22BFF3BDB0087390F /* XiangqiManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,7 @@
 		2CC114ED2A6BC2DA002060BE /* BoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		2CC114EF2A6BC2DA002060BE /* LinesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesView.swift; sourceTree = "<group>"; };
 		2CC44A0B2BFCF16200E4C7C9 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		2CC578A22BFF3BDB0087390F /* XiangqiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XiangqiManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				2CC114C62A6911A0002060BE /* GameManager.swift */,
+				2CC578A22BFF3BDB0087390F /* XiangqiManager.swift */,
 			);
 			path = GameManager;
 			sourceTree = "<group>";
@@ -172,8 +175,8 @@
 		2CC114C72A6911A0002060BE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2CC114C82A6911A0002060BE /* Move.swift */,
 				2CC114C92A6911A0002060BE /* GamePieces */,
+				2CC114C82A6911A0002060BE /* Move.swift */,
 				2CC114D22A6911A0002060BE /* Position.swift */,
 			);
 			path = Models;
@@ -309,6 +312,7 @@
 				2CC114D62A6911A0002060BE /* GameView.swift in Sources */,
 				2CC44A0C2BFCF16200E4C7C9 /* ToastView.swift in Sources */,
 				2CC114E62A6911A1002060BE /* Position.swift in Sources */,
+				2CC578A32BFF3BDB0087390F /* XiangqiManager.swift in Sources */,
 				2CC114E12A6911A0002060BE /* Bishop.swift in Sources */,
 				2CC114E32A6911A0002060BE /* Rook.swift in Sources */,
 				2CC114D82A6911A0002060BE /* TopMenuView.swift in Sources */,

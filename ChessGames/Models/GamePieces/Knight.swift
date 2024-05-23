@@ -17,7 +17,7 @@ final class Knight: GamePiece {
         var moves = [Move]()
 
         for direction in Position.MoveDirection.allCases {
-            guard let orthogonalPos = position.move(direction, 1), orthogonalPos.gamePiece == nil else { continue }
+            guard let orthogonalPos = position.move(direction, 1), gameManager?.getPiece(at: orthogonalPos) == nil else { continue }
             
             let diagonalDirections: [Position.MoveDirection]
             switch direction {
@@ -29,7 +29,7 @@ final class Knight: GamePiece {
             }
             
             for diagonalDirection in diagonalDirections {
-                if let pos = orthogonalPos.move(direction, 1)?.move(diagonalDirection, 1), let move = Move(from: self, to: pos) {
+                if let pos = orthogonalPos.move(direction, 1)?.move(diagonalDirection, 1), let move = Move(self, to: pos) {
                     moves.append(move)
                 }
             }

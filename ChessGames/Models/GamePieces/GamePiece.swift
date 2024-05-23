@@ -9,7 +9,8 @@ import Foundation
 
 class GamePiece: Identifiable {
     let id = UUID()
-    final var pieces: [GamePiece] { GameManager.instance?.pieces ?? [] }
+    weak private(set) var gameManager: GameManager?
+    final var pieces: [GamePiece] { gameManager?.pieces ?? [] }
 
     var side: GameSide
     var position: Position
@@ -19,9 +20,10 @@ class GamePiece: Identifiable {
 
     var title: String { "" }
 
-    init(position: Position, side: GameSide) {
+    init(position: Position, side: GameSide, gameManager: any GameManager) {
         self.position = position
         self.side = side
+        self.gameManager = gameManager
     }
 
 //    func canMove(to: Position) throws -> Bool {

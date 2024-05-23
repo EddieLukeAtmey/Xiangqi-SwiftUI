@@ -19,7 +19,7 @@ final class Bishop: GamePiece {
         for direction in [Position.MoveDirection.up, .down] {
             for side in [Position.MoveDirection.left, .right] {
                 if let pos = position.move([direction, side], 2), canMoveByRule(to: pos) {
-                    if let move = Move(from: self, to: pos) {
+                    if let move = Move(self, to: pos) {
                         moves.append(move)
                     }
                 }
@@ -40,7 +40,7 @@ final class Bishop: GamePiece {
         let midY = (position.y + to.y) / 2
         let midPos = Position(x: midX, y: midY)
         
-        return midPos.gamePiece == nil 
+        return gameManager?.getPiece(at: midPos) == nil 
     }
 
     override func canCheck(_ king: General) -> Bool {

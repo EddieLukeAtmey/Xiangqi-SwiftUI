@@ -18,7 +18,7 @@ final class Advisor: GamePiece {
 
         [Position.MoveDirection.up, .down].forEach { v in
             [Position.MoveDirection.left, .right].forEach { h in
-                if let p = position.move([v, h], 1), p.isInCastle(side), let move = Move(from: self, to: p) {
+                if let p = position.move([v, h], 1), p.isInCastle(side), let move = Move(self, to: p) {
                     moves.append(move)
                 }
             }

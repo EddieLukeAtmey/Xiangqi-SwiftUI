@@ -31,7 +31,6 @@ struct Position: Equatable {
 
 // MARK: - actions
 extension Position {
-    var gamePiece: GamePiece? { GameManager.instance?.pieces.first(where: { $0.position == self }) }
 
     // https://medium.com/sahibinden-technology/bitwise-enum-values-with-the-optionset-in-swift-c5547003478f
     struct MoveDirection: OptionSet {

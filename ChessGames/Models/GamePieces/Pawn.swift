@@ -17,7 +17,7 @@ final class Pawn: GamePiece {
         var moves = [Move]()
 
         let hMove = side == .red ? Position.MoveDirection.up : .down
-        if let pos = position.move(hMove, 1), let move = Move(from: self, to: pos) {
+        if let pos = position.move(hMove, 1), let move = Move(self, to: pos) {
             moves.append(move)
         }
 
@@ -25,7 +25,7 @@ final class Pawn: GamePiece {
         guard hasCrossedRiver else { return moves }
 
         [Position.MoveDirection.right, .left].forEach {
-            if let pos = position.move($0, 1), let move = Move(from: self, to: pos) {
+            if let pos = position.move($0, 1), let move = Move(self, to: pos) {
                 moves.append(move)
             }
         }

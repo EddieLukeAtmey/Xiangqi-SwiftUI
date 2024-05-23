@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BoardView: View {
 
-    @EnvironmentObject var gameManager: GameManager
+    @EnvironmentObject var gameManager: XiangqiManager
     @State var selectedPiece: GamePiece?
     @State private var message: String?
 
@@ -38,7 +38,7 @@ struct BoardView: View {
                         else if piece.side == currentSide {
                             // Set the selected piece in the GameManager
                             selectedPiece = piece
-                        } else if let sp = selectedPiece, let move = Move(from: sp, to: piece.position) { // Capture
+                        } else if let sp = selectedPiece, let move = Move(sp, to: piece.position) { // Capture
                             do {
                                 try gameManager.performMove(move)
                                 selectedPiece = nil
@@ -96,5 +96,5 @@ struct BoardView: View {
 }
 
 #Preview {
-    BoardView().environmentObject(GameManager())
+    BoardView().environmentObject(XiangqiManager())
 }

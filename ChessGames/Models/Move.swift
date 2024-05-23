@@ -9,24 +9,24 @@ import Foundation
 
 // A single move a game piece can do at a turn
 struct Move {
-    let from: GamePiece
+    let piece: GamePiece
     let to: Position
     let captured: GamePiece?
 
-    init?(from: GamePiece, to: Position) {
-        self.from = from
+    init?(_ piece: GamePiece, to: Position) {
+        self.piece = piece
         self.to = to
 
-        guard let piece = to.gamePiece else { captured = nil; return } // ok to move to empty spot
-        guard piece.side != from.side else { return nil } // move to ally
+        guard let piece = piece.gameManager?.getPiece(at: to) else { captured = nil; return } // ok to move to empty spot
+        guard piece.side != piece.side else { return nil } // move to ally
 
         captured = piece
     }
 
     /// - returns: original position
     func perform() -> Position {
-        let org = from.position
-        from.position = to
+        let org = piece.position
+        piece.position = to
         return org
     }
 }
