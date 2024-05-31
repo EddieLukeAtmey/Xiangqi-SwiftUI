@@ -20,7 +20,7 @@ class GamePiece: Identifiable {
 
     var title: String { "" }
 
-    init(position: Position, side: GameSide, gameManager: any GameManager) {
+    init(position: Position, side: GameSide, gameManager: GameManager) {
         self.position = position
         self.side = side
         self.gameManager = gameManager

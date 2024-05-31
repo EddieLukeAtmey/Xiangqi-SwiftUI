@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2C8F19F62A6910AE00887FFA"
-               BuildableName = "ChessGames.app"
-               BlueprintName = "ChessGames"
-               ReferencedContainer = "container:ChessGames.xcodeproj">
+               BuildableName = "iXiangqi.app"
+               BlueprintName = "iXiangqi"
+               ReferencedContainer = "container:iXiangqi.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2C8F19F62A6910AE00887FFA"
-            BuildableName = "ChessGames.app"
-            BlueprintName = "ChessGames"
-            ReferencedContainer = "container:ChessGames.xcodeproj">
+            BuildableName = "iXiangqi.app"
+            BlueprintName = "iXiangqi"
+            ReferencedContainer = "container:iXiangqi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2C8F19F62A6910AE00887FFA"
-            BuildableName = "ChessGames.app"
-            BlueprintName = "ChessGames"
-            ReferencedContainer = "container:ChessGames.xcodeproj">
+            BuildableName = "iXiangqi.app"
+            BlueprintName = "iXiangqi"
+            ReferencedContainer = "container:iXiangqi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C07E9862A6A9D9300636D6B /* MoveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07E9852A6A9D9300636D6B /* MoveView.swift */; };
-		2C8F19FB2A6910AE00887FFA /* ChessGamesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F19FA2A6910AE00887FFA /* ChessGamesApp.swift */; };
+		2C8F19FB2A6910AE00887FFA /* iXiangqiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F19FA2A6910AE00887FFA /* iXiangqiApp.swift */; };
 		2C8F19FF2A6910AF00887FFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F19FE2A6910AF00887FFA /* Assets.xcassets */; };
 		2C8F1A032A6910AF00887FFA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F1A022A6910AF00887FFA /* Preview Assets.xcassets */; };
 		2CC114D32A6911A0002060BE /* GamePiece+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC114B82A6911A0002060BE /* GamePiece+UI.swift */; };
@@ -33,13 +33,12 @@
 		2CC114F12A6BC2DA002060BE /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC114ED2A6BC2DA002060BE /* BoardView.swift */; };
 		2CC114F22A6BC2DA002060BE /* LinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC114EF2A6BC2DA002060BE /* LinesView.swift */; };
 		2CC44A0C2BFCF16200E4C7C9 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC44A0B2BFCF16200E4C7C9 /* ToastView.swift */; };
-		2CC578A32BFF3BDB0087390F /* XiangqiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC578A22BFF3BDB0087390F /* XiangqiManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2C07E9852A6A9D9300636D6B /* MoveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveView.swift; sourceTree = "<group>"; };
-		2C8F19F72A6910AE00887FFA /* ChessGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChessGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C8F19FA2A6910AE00887FFA /* ChessGamesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessGamesApp.swift; sourceTree = "<group>"; };
+		2C8F19F72A6910AE00887FFA /* iXiangqi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iXiangqi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C8F19FA2A6910AE00887FFA /* iXiangqiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iXiangqiApp.swift; sourceTree = "<group>"; };
 		2C8F19FE2A6910AF00887FFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C8F1A022A6910AF00887FFA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2CC114B82A6911A0002060BE /* GamePiece+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GamePiece+UI.swift"; sourceTree = "<group>"; };
@@ -64,7 +63,6 @@
 		2CC114ED2A6BC2DA002060BE /* BoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		2CC114EF2A6BC2DA002060BE /* LinesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinesView.swift; sourceTree = "<group>"; };
 		2CC44A0B2BFCF16200E4C7C9 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
-		2CC578A22BFF3BDB0087390F /* XiangqiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XiangqiManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +79,7 @@
 		2C8F19EE2A6910AE00887FFA = {
 			isa = PBXGroup;
 			children = (
-				2C8F19F92A6910AE00887FFA /* ChessGames */,
+				2C8F19F92A6910AE00887FFA /* iXiangqi */,
 				2C8F19F82A6910AE00887FFA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,23 +87,23 @@
 		2C8F19F82A6910AE00887FFA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2C8F19F72A6910AE00887FFA /* ChessGames.app */,
+				2C8F19F72A6910AE00887FFA /* iXiangqi.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2C8F19F92A6910AE00887FFA /* ChessGames */ = {
+		2C8F19F92A6910AE00887FFA /* iXiangqi */ = {
 			isa = PBXGroup;
 			children = (
 				2CC114C02A6911A0002060BE /* Util */,
-				2C8F19FA2A6910AE00887FFA /* ChessGamesApp.swift */,
+				2C8F19FA2A6910AE00887FFA /* iXiangqiApp.swift */,
 				2CC114C72A6911A0002060BE /* Models */,
 				2CC114B62A6911A0002060BE /* Views */,
 				2CC114C52A6911A0002060BE /* GameManager */,
 				2C8F19FE2A6910AF00887FFA /* Assets.xcassets */,
 				2C8F1A012A6910AF00887FFA /* Preview Content */,
 			);
-			path = ChessGames;
+			path = iXiangqi;
 			sourceTree = "<group>";
 		};
 		2C8F1A012A6910AF00887FFA /* Preview Content */ = {
@@ -167,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				2CC114C62A6911A0002060BE /* GameManager.swift */,
-				2CC578A22BFF3BDB0087390F /* XiangqiManager.swift */,
 			);
 			path = GameManager;
 			sourceTree = "<group>";
@@ -227,9 +224,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2C8F19F62A6910AE00887FFA /* ChessGames */ = {
+		2C8F19F62A6910AE00887FFA /* iXiangqi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2C8F1A062A6910AF00887FFA /* Build configuration list for PBXNativeTarget "ChessGames" */;
+			buildConfigurationList = 2C8F1A062A6910AF00887FFA /* Build configuration list for PBXNativeTarget "iXiangqi" */;
 			buildPhases = (
 				2C8F19F32A6910AE00887FFA /* Sources */,
 				2C8F19F42A6910AE00887FFA /* Frameworks */,
@@ -239,9 +236,9 @@
 			);
 			dependencies = (
 			);
-			name = ChessGames;
+			name = iXiangqi;
 			productName = ChessGames;
-			productReference = 2C8F19F72A6910AE00887FFA /* ChessGames.app */;
+			productReference = 2C8F19F72A6910AE00887FFA /* iXiangqi.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -259,7 +256,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2C8F19F22A6910AE00887FFA /* Build configuration list for PBXProject "ChessGames" */;
+			buildConfigurationList = 2C8F19F22A6910AE00887FFA /* Build configuration list for PBXProject "iXiangqi" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -272,7 +269,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2C8F19F62A6910AE00887FFA /* ChessGames */,
+				2C8F19F62A6910AE00887FFA /* iXiangqi */,
 			);
 		};
 /* End PBXProject section */
@@ -306,13 +303,12 @@
 				2CC114DA2A6911A0002060BE /* Number+Extensions.swift in Sources */,
 				2C07E9862A6A9D9300636D6B /* MoveView.swift in Sources */,
 				2CC114F22A6BC2DA002060BE /* LinesView.swift in Sources */,
-				2C8F19FB2A6910AE00887FFA /* ChessGamesApp.swift in Sources */,
+				2C8F19FB2A6910AE00887FFA /* iXiangqiApp.swift in Sources */,
 				2CC114E02A6911A0002060BE /* General.swift in Sources */,
 				2CC114DB2A6911A0002060BE /* Errors.swift in Sources */,
 				2CC114D62A6911A0002060BE /* GameView.swift in Sources */,
 				2CC44A0C2BFCF16200E4C7C9 /* ToastView.swift in Sources */,
 				2CC114E62A6911A1002060BE /* Position.swift in Sources */,
-				2CC578A32BFF3BDB0087390F /* XiangqiManager.swift in Sources */,
 				2CC114E12A6911A0002060BE /* Bishop.swift in Sources */,
 				2CC114E32A6911A0002060BE /* Rook.swift in Sources */,
 				2CC114D82A6911A0002060BE /* TopMenuView.swift in Sources */,
@@ -441,11 +437,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ChessGames/Preview Content\"";
-				DEVELOPMENT_TEAM = JAL984MN62;
+				DEVELOPMENT_ASSET_PATHS = "\"iXiangqi/Preview Content\"";
+				DEVELOPMENT_TEAM = 2UZU37GDSB;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = iXiangqi;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -461,7 +458,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = eddie.ChessGames;
+				PRODUCT_BUNDLE_IDENTIFIER = eddie.iXiangqi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -478,11 +475,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ChessGames/Preview Content\"";
-				DEVELOPMENT_TEAM = JAL984MN62;
+				DEVELOPMENT_ASSET_PATHS = "\"iXiangqi/Preview Content\"";
+				DEVELOPMENT_TEAM = 2UZU37GDSB;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = iXiangqi;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -498,7 +496,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = eddie.ChessGames;
+				PRODUCT_BUNDLE_IDENTIFIER = eddie.iXiangqi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -511,7 +509,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2C8F19F22A6910AE00887FFA /* Build configuration list for PBXProject "ChessGames" */ = {
+		2C8F19F22A6910AE00887FFA /* Build configuration list for PBXProject "iXiangqi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2C8F1A042A6910AF00887FFA /* Debug */,
@@ -520,7 +518,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2C8F1A062A6910AF00887FFA /* Build configuration list for PBXNativeTarget "ChessGames" */ = {
+		2C8F1A062A6910AF00887FFA /* Build configuration list for PBXNativeTarget "iXiangqi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2C8F1A072A6910AF00887FFA /* Debug */,

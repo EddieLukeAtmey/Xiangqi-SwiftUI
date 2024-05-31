@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GameView: View {
 
-    @EnvironmentObject var gameManager: XiangqiManager
+    @EnvironmentObject var gameManager: GameManager
 
     var body: some View {
         VStack {

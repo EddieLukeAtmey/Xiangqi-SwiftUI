@@ -1,14 +1,20 @@
 //
-//  XiangqiManager.swift
-//  ChessGames
+//  GameManager.swift
+//  xingqi
 //
-//  Created by Eddie Luke Atmey on 23/5/24.
+//  Created by Eddie on 17/07/2023.
 //
 
 import Foundation
 import Combine
 
-final class XiangqiManager: GameManager, ObservableObject {
+enum GameState {
+    case initialized
+    case isPlaying(_ movingTurn: GameSide)
+    case ended(_ losingSide: GameSide?)
+}
+
+final class GameManager: ObservableObject {
     private(set) var pieces: [GamePiece]
     private(set) var capturedPieces = [GamePiece]()
 
@@ -97,6 +103,10 @@ final class XiangqiManager: GameManager, ObservableObject {
         pieces.first(where: { $0.side == side && $0 is General }) as! General
     }
 
+    func getPiece(at position: Position) -> GamePiece? {
+        pieces.first { $0.position == position }
+    }
+
     func start() {
         state = .isPlaying(.red)
         startTimer()
@@ -121,7 +131,7 @@ final class XiangqiManager: GameManager, ObservableObject {
 }
 
 // MARK: - Actions
-extension XiangqiManager {
+extension GameManager {
     func canMove(_ move: Move) throws -> Bool {
         let myKing = getGeneral(of: move.piece.side)
 
@@ -190,3 +200,4 @@ extension XiangqiManager {
         }
     }
 }
+

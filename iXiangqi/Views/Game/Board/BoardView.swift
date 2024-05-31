@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BoardView: View {
 
-    @EnvironmentObject var gameManager: XiangqiManager
+    @EnvironmentObject var gameManager: GameManager
     @State var selectedPiece: GamePiece?
     @State private var message: String?
 
@@ -96,5 +96,5 @@ struct BoardView: View {
 }
 
 #Preview {
-    BoardView().environmentObject(XiangqiManager())
+    BoardView().environmentObject(GameManager())
 }
