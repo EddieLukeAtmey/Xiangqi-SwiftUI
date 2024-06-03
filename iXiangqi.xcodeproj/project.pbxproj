@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C07E9862A6A9D9300636D6B /* MoveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C07E9852A6A9D9300636D6B /* MoveView.swift */; };
+		2C446ED12C0A43EF001A6901 /* PlayerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C446ED02C0A43EF001A6901 /* PlayerInfoView.swift */; };
 		2C8F19FB2A6910AE00887FFA /* iXiangqiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8F19FA2A6910AE00887FFA /* iXiangqiApp.swift */; };
 		2C8F19FF2A6910AF00887FFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F19FE2A6910AF00887FFA /* Assets.xcassets */; };
 		2C8F1A032A6910AF00887FFA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C8F1A022A6910AF00887FFA /* Preview Assets.xcassets */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		2C07E9852A6A9D9300636D6B /* MoveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveView.swift; sourceTree = "<group>"; };
+		2C446ED02C0A43EF001A6901 /* PlayerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoView.swift; sourceTree = "<group>"; };
 		2C8F19F72A6910AE00887FFA /* iXiangqi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iXiangqi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C8F19FA2A6910AE00887FFA /* iXiangqiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iXiangqiApp.swift; sourceTree = "<group>"; };
 		2C8F19FE2A6910AF00887FFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -78,12 +80,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C446ECF2C0A43D0001A6901 /* PlayerInfo */ = {
+			isa = PBXGroup;
+			children = (
+				2C446ED02C0A43EF001A6901 /* PlayerInfoView.swift */,
+			);
+			path = PlayerInfo;
+			sourceTree = "<group>";
+		};
 		2C8F19EE2A6910AE00887FFA = {
 			isa = PBXGroup;
 			children = (
+				2C8F19F92A6910AE00887FFA /* iXiangqi */,
 				2CE8815C2C0A28FC0041BEA9 /* README.md */,
 				2CE8815D2C0A29030041BEA9 /* LICENSE */,
-				2C8F19F92A6910AE00887FFA /* iXiangqi */,
 				2C8F19F82A6910AE00887FFA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -140,6 +150,7 @@
 		2CC114BA2A6911A0002060BE /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				2C446ECF2C0A43D0001A6901 /* PlayerInfo */,
 				2CC114BC2A6911A0002060BE /* GameView.swift */,
 				2CC114BF2A6911A0002060BE /* TopMenuView.swift */,
 				2CC114EB2A6BC2DA002060BE /* Board */,
@@ -307,6 +318,7 @@
 				2CC114DA2A6911A0002060BE /* Number+Extensions.swift in Sources */,
 				2C07E9862A6A9D9300636D6B /* MoveView.swift in Sources */,
 				2CC114F22A6BC2DA002060BE /* LinesView.swift in Sources */,
+				2C446ED12C0A43EF001A6901 /* PlayerInfoView.swift in Sources */,
 				2C8F19FB2A6910AE00887FFA /* iXiangqiApp.swift in Sources */,
 				2CC114E02A6911A0002060BE /* General.swift in Sources */,
 				2CC114DB2A6911A0002060BE /* Errors.swift in Sources */,

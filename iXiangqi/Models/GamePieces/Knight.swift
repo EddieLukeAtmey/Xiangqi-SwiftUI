@@ -13,12 +13,13 @@ final class Knight: GamePiece {
         side == .red ? "傌" : "馬"
     }
 
+    /// Knights moves one straight (horizontal || vertical) then one diagonal (up-left, up-right, down-left, down-right)
     override var availableMoves: [Move] {
         var moves = [Move]()
 
         for direction in Position.MoveDirection.allCases {
-            guard let orthogonalPos = position.move(direction, 1), gameManager?.getPiece(at: orthogonalPos) == nil else { continue }
-            
+            guard let straightMovePosition = position.move(direction, 1), gameManager?.getPiece(at: straightMovePosition) == nil else { continue }
+
             let diagonalDirections: [Position.MoveDirection]
             switch direction {
             case .up, .down:
@@ -29,7 +30,7 @@ final class Knight: GamePiece {
             }
             
             for diagonalDirection in diagonalDirections {
-                if let pos = orthogonalPos.move(direction, 1)?.move(diagonalDirection, 1), let move = Move(self, to: pos) {
+                if let pos = straightMovePosition.move(direction, 1)?.move(diagonalDirection, 1), let move = Move(self, to: pos) {
                     moves.append(move)
                 }
             }

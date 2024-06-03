@@ -16,15 +16,7 @@ struct TopMenuView: View {
 
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
-                Text(p1Name)
-                    .foregroundColor(.red)
-                    .font(.title)
-
-                Text("\(formattedTime(from: gameManager.p1Timer))")
-                    .font(.title)
-            }
-
+            PlayerInfoView(name: p1Name, alignment: .leading, timer: $gameManager.p1Timer)
             Spacer()
 
             switch gameManager.state {
@@ -41,9 +33,8 @@ struct TopMenuView: View {
                 })
 
             case .ended(let losingSide):
-
                 VStack {
-                    if var losingSide {
+                    if let losingSide {
                         Text("\(losingSide)'s lose")
                             .font(.title)
                             .textCase(.uppercase)
@@ -66,36 +57,18 @@ struct TopMenuView: View {
                 }
 
             case .isPlaying(let movingSide):
-
                 Text("\(movingSide)'s turn")
                     .font(.title)
                     .textCase(.uppercase)
             }
 
             Spacer()
-
-            VStack(alignment: .trailing) {
-                Text(p2Name)
-                    .foregroundColor(.black)
-                    .font(.title)
-
-                Text("\(formattedTime(from: gameManager.p2Timer))")
-                    .font(.title)
-            }
+            PlayerInfoView(name: p2Name, alignment: .trailing, timer: $gameManager.p2Timer)
         }
         .frame(maxWidth: .infinity)
     }
 
-    private func formattedTime(from totalSeconds: Int) -> String {
-        let minutes = totalSeconds / 60
-        let seconds = totalSeconds % 60
-        return String(format: "%02d:%02d", minutes, seconds)
-    }
 }
-
-//struct PlayerInfoView: View {
-//    let p1Name: String
-//}
 
 struct TopMenuView_Previews: PreviewProvider {
 

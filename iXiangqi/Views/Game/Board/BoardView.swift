@@ -10,7 +10,10 @@ import SwiftUI
 struct BoardView: View {
 
     @EnvironmentObject var gameManager: GameManager
-    @State var selectedPiece: GamePiece?
+    @State var selectedPiece: GamePiece? { didSet {
+        moves = selectedPiece?.availableMoves
+    }}
+    @State var moves: [Move]?
     @State private var message: String?
 
     var body: some View {
@@ -22,8 +25,8 @@ struct BoardView: View {
         let halfHeigth = spacing * 4
 
         ZStack {
-            Color(red: 240/255, green: 208/255, blue: 160/255)
-            
+            Color(red: 240/255, green: 208/255, blue: 160/255) // board's background color
+
             LinesView(width: width, height: fullHeight, halfHeight: halfHeigth, spacing: spacing)
             
             // Add the game pieces
@@ -35,10 +38,9 @@ struct BoardView: View {
                         guard case .isPlaying(let currentSide) = gameManager.state else { return }
 
                         if selectedPiece == piece { selectedPiece = nil } // Deselect
-                        else if piece.side == currentSide {
-                            // Set the selected piece in the GameManager
+                        else if piece.side == currentSide { // Change selection
                             selectedPiece = piece
-                        } else if let sp = selectedPiece, let move = Move(sp, to: piece.position) { // Capture
+                        } else if let sp = selectedPiece, let move = Move(sp, to: piece.position), moves?.contains(where: { $0 == move }) == true { // Capture
                             do {
                                 try gameManager.performMove(move)
                                 selectedPiece = nil
@@ -52,22 +54,11 @@ struct BoardView: View {
             }
 
             // Add available moves
-            if let selectedPiece = selectedPiece,
-               selectedPiece.side == gameManager.currentPlayer {
-
-                ForEach(selectedPiece.availableMoves, id: \.to) { move in
+            if let moves {
+                ForEach(moves, id: \.to) { move in
                     MoveView(move: move, spacing: spacing)
                         .onTapGesture {
-                            // Perform the piece movement here
-                            do {
-                                try gameManager.performMove(move)
-                                self.selectedPiece = nil
-                            }
-                            catch {
-                                // Display toast error
-                                print(error)
-                                toastMessage(error.localizedDescription)
-                            }
+                            performMove(move)
                         }
                 }
             }
@@ -79,6 +70,18 @@ struct BoardView: View {
             }
         }
         .frame(width:  width, height: fullHeight)
+    }
+
+    private func performMove(_ move: Move) {
+        // Perform the piece movement here
+        do {
+            try gameManager.performMove(move)
+            selectedPiece = nil
+        } catch {
+            // Display toast error
+            print(error)
+            toastMessage(error.localizedDescription)
+        }
     }
 
     private func toastMessage(_ message: String) {
@@ -96,5 +99,7 @@ struct BoardView: View {
 }
 
 #Preview {
-    BoardView().environmentObject(GameManager())
+    let gm = GameManager()
+    gm.start()
+    return BoardView().environmentObject(gm)
 }

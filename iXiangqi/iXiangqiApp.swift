@@ -12,8 +12,8 @@ struct iXiangqiApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainMenuView()
-//            GameView().environmentObject(tempGameManager)
+//            MainMenuView()
+            GameView().environmentObject(GameManager())
         }
     }
 }
